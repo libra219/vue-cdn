@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue.js</title>
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.1.2/css/bulma.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="main.css" rel="stylesheet">
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <div id="app-2">
+        <span v-bind:title="message">
+          Hover your mouse over me for a few seconds
+          to see my dynamically bound title!
+        </span>
+    </div>
+    <div id="app-3">
+        <span v-if="seen">Now you see me</span>
+    </div>
+    <div id="app-4">
+        <ol>
+          <li v-for="todo in todos">
+            {{ todo.text }}
+          </li>
+        </ol>
+    </div>
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button class="button" @click="reverseMessage">Reverse Message</button>
+    </div>
+    <div id="app-6">
+        <p>{{ message }}</p>
+        <input v-model="message">
+    </div>
+    <div id="app-7">
+        <h3>確率抽選機</h3>
+        <input type="number" name="" id="" v-model="bonus">
+        <button class="button is-success" v-on:click="rand">抽選</button>
+        <button class="button is-dark" v-on:click="reset">ラムクリ</button>
+    
+        <div v-if="bonus > test">
+            <p class="has-text-warning">大当たり</p>
+        </div>
+        <p>大当たり回数：{{ bonus_count }}</p>
+        <p>{{ test }}</p>
+        <p>{{ count }}</p>
+    </div>
+
+
+
+    <div id="app-8">
+        <h3>復活チャレンジ</h3>
+        <input type="number" name="" id="" v-model="bonus">
+        <div v-if="bonus > test">
+            <p class="has-text-warning">大当たり</p>
+        </div>
+        <p>{{ test }}</p>
+        <p>{{ count }}</p>
+        <button class="button is-success" v-on:click="rand">抽選</button>
+    </div>
+
+    <div id="app-9">
+        <h3>確変確率抽選機</h3>
+        <input type="number" name="" id="" v-model="bonus">
+        <button class="button is-success" v-on:click="rand">抽選</button>
+        <button class="button is-dark" v-on:click="reset">ラムクリ</button>
+    
+        <div v-if="bonus > test">
+            <p class="has-text-warning">大当たり</p>
+        </div>
+        <p>大当たり回数：{{ bonus_count }}</p>
+        <p>{{ test }}</p>
+        <p>{{ count }}</p>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
